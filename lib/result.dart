@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/main.dart';
 
 class Result extends StatelessWidget {
   final int resultScore;
@@ -22,10 +23,24 @@ class Result extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        resultPhrase,
-        style: const TextStyle(
-            fontWeight: FontWeight.w800, fontSize: 40, color: Colors.blue),
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 200.0,
+          ),
+          Text(
+            resultPhrase,
+            style: const TextStyle(
+                fontWeight: FontWeight.w800, fontSize: 40, color: Colors.blue),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(
+            height: 40.0,
+          ),
+          ElevatedButton(onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (_)=>MyApp()));
+          }, child: const Text("Play again"))
+        ],
       ),
     );
   }
