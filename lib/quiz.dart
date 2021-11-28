@@ -26,8 +26,8 @@ class Quiz extends StatelessWidget {
         const SizedBox(
           height: 50.0,
         ),
-        ...(questions[questionIndex]['answer'] as List<String>).map((answer) {
-          return Answer(answerQuestion, answer);
+        ...(questions[questionIndex]['answers'] as List<Map<String, Object>>).map((answer) {
+          return Answer( () => answerQuestion(answer['score']), answer['text'] as String);
         }).toList(),
       ],
     );

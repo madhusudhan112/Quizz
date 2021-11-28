@@ -11,23 +11,37 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
+  var _totalScore = 0;
 
   final List<Map> _questions = const [
     {
-      'questionText': "What's Your Favorite Book ?",
-      'answer': ["No Man's Land", "Witcher The Wild Hunt", "Prince of Persia"],
+      'questionText': "From where the Geralt of Rivia Character Came From ?",
+      'answers': [
+        {'text': "No Man's Land", 'score': 0},
+        {'text': "Witcher The Wild Hunt", 'score': 10},
+        {'text': "Prince of Persia",'score':0}
+      ],
     },
     {
-      'questionText': "Who was Chester Bennington ?",
-      'answer': ["Guitarist", "Vocalist", "Drummer"],
+      'questionText': "Who is Chester Bennington ?",
+      'answers': [
+        {'text': "Drummer", 'score': 0},
+        {'text': "Guitarist", 'score': 0},
+        {'text': "Vocalist",'score': 10}
+      ],
     },
     {
-      'questionText': "Which Os does Samsung Phone use ?",
-      'answer': ["Android", "IOS", "Symbian"],
+      'questionText': "Which Os Does Iphone user ?",
+      'answers': [
+        {'text': "Android/Linux", 'score': 0},
+        {'text': "IOS", 'score': 10},
+        {'text': "Symbian",'score':0}
+      ],
     },
   ];
 
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
+    _totalScore += score;
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
